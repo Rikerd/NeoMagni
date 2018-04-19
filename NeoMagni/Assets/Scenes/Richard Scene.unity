@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 428208932}
   - component: {fileID: 428208931}
+  - component: {fileID: 428208933}
   m_Layer: 0
   m_Name: Magni
   m_TagString: Untagged
@@ -186,6 +187,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &428208933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 428208930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6fe6ff5cded164fb03dea422ceff69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1422069768}
+  leftMagnet: 0
 --- !u!1 &552739086
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +376,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1422069767}
   - component: {fileID: 1422069766}
+  - component: {fileID: 1422069768}
   m_Layer: 0
   m_Name: Neo
   m_TagString: Untagged
@@ -426,3 +441,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1422069768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1422069765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6fe6ff5cded164fb03dea422ceff69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 428208933}
+  leftMagnet: 1

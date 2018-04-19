@@ -200,6 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1422069768}
   leftMagnet: 0
+  movementDuration: 0.2
 --- !u!1 &552739086
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,3 +455,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 428208933}
   leftMagnet: 1
+  movementDuration: 0.2

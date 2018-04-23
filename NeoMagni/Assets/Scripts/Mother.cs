@@ -17,6 +17,8 @@ public class Mother : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (players.Length < 2)
+            players = GameObject.FindGameObjectsWithTag("Player");
         timer++;
         if (timer > 60 && CheckPlayers())
         {
@@ -31,14 +33,18 @@ public class Mother : MonoBehaviour {
     // checks if the players are still alive
     bool CheckPlayers ()
     {
-        if (players[0].activeSelf && players[1].activeSelf)
+        if (players.Length == 2)
         {
-            return true;
+            if (players[0].activeSelf && players[1].activeSelf)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
-        else
-        {
-            return false;
-        }
+        return false;
     } 
 
 

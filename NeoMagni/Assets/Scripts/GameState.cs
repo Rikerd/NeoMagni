@@ -53,8 +53,6 @@ public class GameState : NetworkBehaviour
 
         checkRepelAttract(player1Controller, player2Controller);
 
-        print(status); ///TODO: take out
-
         if (status == "neither")
         {
             if (player1Controller.state == 0)

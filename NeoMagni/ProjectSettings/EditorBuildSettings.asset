@@ -4,4 +4,22 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Crystal Scene.unity
+    guid: 7dbbec503b64ca742b5bdaaa13fa2865
+  - enabled: 0
+    path: Assets/Scenes/Richard Scene.unity
+    guid: 9e06f72af0f18e84ea82262c5a0ad25b
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/Scenes/Isaac Scene.unity
+    guid: 9278e2411eb35c04798aa4ae026c416e
+  - enabled: 1
+    path: Assets/Scenes/Crystal2 Scene.unity
+    guid: 26a7a0700ccef0744a3bc75bf4f3abdb

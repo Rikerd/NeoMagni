@@ -12,12 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Richard Scene.unity
     guid: 9e06f72af0f18e84ea82262c5a0ad25b
   - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
     path: Assets/Scenes/Isaac Scene.unity
     guid: 9278e2411eb35c04798aa4ae026c416e
   - enabled: 1

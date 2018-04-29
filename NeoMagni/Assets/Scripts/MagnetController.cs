@@ -11,8 +11,8 @@ public class MagnetController : MonoBehaviour {
     public float movementDuration;
 
     private float inner = 0.65f;
-    private float middle = 1.4f;
-    private float outer = 2.3f;
+    private float middle = 2.5f;
+    private float outer = 4.8f;
 
     protected MagnetState currentState;
     private SpriteRenderer sprite;

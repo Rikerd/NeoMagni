@@ -68,7 +68,7 @@ public class Mother : MonoBehaviour {
     // spits out the chickens at random positions
     void Birth ()
     {
-		int x = 7;
+		int x = 10;
 		if (gametime > 2700) {
 			x = 10;
 		}

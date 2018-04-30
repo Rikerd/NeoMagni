@@ -40,7 +40,7 @@ public class MagnetController : MonoBehaviour {
             outer = -outer;
         }
 
-        sprite = GetComponent<SpriteRenderer>();
+        //sprite = GetComponent<SpriteRenderer>();
         moving = false;
         timePassed = 0f;
         currentPosition = transform.position;
@@ -95,7 +95,7 @@ public class MagnetController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.A) && leftMagnet && !moving)
         {
             currentState = MagnetState.Red;
-            sprite.color = Color.red;
+            //sprite.color = Color.red;
 
             if ((currentState == MagnetState.Red && player.currentState == MagnetState.Red) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Blue) ||
                 ((currentState == MagnetState.Red && player.currentState == MagnetState.Blue) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Red)))
@@ -107,7 +107,7 @@ public class MagnetController : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.LeftArrow) && !leftMagnet && !moving)
         {
             currentState = MagnetState.Red;
-            sprite.color = Color.red;
+            //sprite.color = Color.red;
 
             if ((currentState == MagnetState.Red && player.currentState == MagnetState.Red) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Blue) ||
                 ((currentState == MagnetState.Red && player.currentState == MagnetState.Blue) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Red)))
@@ -120,7 +120,7 @@ public class MagnetController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.D) && leftMagnet && !moving)
         {
             currentState = MagnetState.Blue;
-            sprite.color = Color.blue;
+            //sprite.color = Color.blue;
 
             if ((currentState == MagnetState.Red && player.currentState == MagnetState.Red) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Blue) ||
                 ((currentState == MagnetState.Red && player.currentState == MagnetState.Blue) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Red)))
@@ -132,7 +132,7 @@ public class MagnetController : MonoBehaviour {
         else if (Input.GetKeyDown(KeyCode.RightArrow) && !leftMagnet && !moving)
         {
             currentState = MagnetState.Blue;
-            sprite.color = Color.blue;
+            //sprite.color = Color.blue;
 
             if ((currentState == MagnetState.Red && player.currentState == MagnetState.Red) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Blue) ||
                 ((currentState == MagnetState.Red && player.currentState == MagnetState.Blue) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Red)))
@@ -145,14 +145,14 @@ public class MagnetController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.S) && leftMagnet && !moving)
         {
             currentState = MagnetState.Neutral;
-            sprite.color = Color.white;
+            //sprite.color = Color.white;
 
             setAnimationVariables();
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow) && !leftMagnet && !moving)
         {
             currentState = MagnetState.Neutral;
-            sprite.color = Color.white;
+            //sprite.color = Color.white;
 
             setAnimationVariables();
         }

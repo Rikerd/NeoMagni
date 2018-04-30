@@ -6,7 +6,7 @@ public class Obstacle : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		GameObject scoretxt = GameObject.FindGameObjectWithTag ("Score");
 	}
 	
 	// Update is called once per frame
@@ -19,7 +19,7 @@ public class Obstacle : MonoBehaviour {
             other.gameObject.SetActive(false);
 		}
 		
-		if (other.gameObject.tag == "Hungry") {
+		if (other.gameObject.tag == "Hungry") { 
 			Destroy(this.gameObject);
 		}
 	}

@@ -49,7 +49,7 @@ public class PlayerController : NetworkBehaviour
         sprite = GetComponent<SpriteRenderer>();
         moving = false;
         timePassed = 0f;
-        currentPosition = transform.position;
+        currentPosition = new Vector3(middle, 4, 0);
     }
 
     // Update is called once per frame

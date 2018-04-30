@@ -10,6 +10,8 @@ public class MagnetController : MonoBehaviour {
 
     public float movementDuration;
 
+    public Transform modelTransform;
+
     private float inner = 0.65f;
     private float middle = 2.5f;
     private float outer = 4.8f;
@@ -20,6 +22,8 @@ public class MagnetController : MonoBehaviour {
 
     private Vector3 currentPosition;
     private float timePassed;
+
+    private float rotationMultiplier;
     
 
     public enum MagnetState
@@ -33,11 +37,15 @@ public class MagnetController : MonoBehaviour {
 	void Start () {
         currentState = MagnetState.Neutral;
 
+        rotationMultiplier = 1;
+
         if (leftMagnet)
         {
             inner = -inner;
             middle = -middle;
             outer = -outer;
+
+            rotationMultiplier = -1;
         }
 
         //sprite = GetComponent<SpriteRenderer>();
@@ -95,6 +103,9 @@ public class MagnetController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.A) && leftMagnet && !moving)
         {
             currentState = MagnetState.Red;
+            Quaternion target = Quaternion.Euler(180, 0, -90);
+
+            modelTransform.rotation = target;
             //sprite.color = Color.red;
 
             if ((currentState == MagnetState.Red && player.currentState == MagnetState.Red) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Blue) ||
@@ -108,6 +119,9 @@ public class MagnetController : MonoBehaviour {
         {
             currentState = MagnetState.Red;
             //sprite.color = Color.red;
+            Quaternion target = Quaternion.Euler(180, 180, -90);
+
+            modelTransform.rotation = target;
 
             if ((currentState == MagnetState.Red && player.currentState == MagnetState.Red) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Blue) ||
                 ((currentState == MagnetState.Red && player.currentState == MagnetState.Blue) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Red)))
@@ -121,6 +135,9 @@ public class MagnetController : MonoBehaviour {
         {
             currentState = MagnetState.Blue;
             //sprite.color = Color.blue;
+            Quaternion target = Quaternion.Euler(180, 180, 90);
+
+            modelTransform.rotation = target;
 
             if ((currentState == MagnetState.Red && player.currentState == MagnetState.Red) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Blue) ||
                 ((currentState == MagnetState.Red && player.currentState == MagnetState.Blue) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Red)))
@@ -133,6 +150,9 @@ public class MagnetController : MonoBehaviour {
         {
             currentState = MagnetState.Blue;
             //sprite.color = Color.blue;
+            Quaternion target = Quaternion.Euler(180, 0, 90);
+
+            modelTransform.rotation = target;
 
             if ((currentState == MagnetState.Red && player.currentState == MagnetState.Red) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Blue) ||
                 ((currentState == MagnetState.Red && player.currentState == MagnetState.Blue) || (currentState == MagnetState.Blue && player.currentState == MagnetState.Red)))
@@ -146,6 +166,9 @@ public class MagnetController : MonoBehaviour {
         {
             currentState = MagnetState.Neutral;
             //sprite.color = Color.white;
+            Quaternion target = Quaternion.Euler(180, 0, 0);
+
+            modelTransform.rotation = target;
 
             setAnimationVariables();
         }
@@ -153,6 +176,9 @@ public class MagnetController : MonoBehaviour {
         {
             currentState = MagnetState.Neutral;
             //sprite.color = Color.white;
+            Quaternion target = Quaternion.Euler(180, 180, 0);
+
+            modelTransform.rotation = target;
 
             setAnimationVariables();
         }

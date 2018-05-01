@@ -48,4 +48,9 @@ public class GameManager : MonoBehaviour {
 
         SceneManager.LoadScene(sceneIndex);
     }
+
+    public void setGameOver(bool status)
+    {
+        gameOver = status;
+    }
 }

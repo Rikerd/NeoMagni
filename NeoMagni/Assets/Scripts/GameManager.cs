@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour {
 
     public void LoadSceneByIndex(int sceneIndex)
     {
-        eventSystem.SetActive(false);
+        if (eventSystem != null)
+            eventSystem.SetActive(false);
         StartCoroutine(FadeWait(sceneIndex));
     }
 

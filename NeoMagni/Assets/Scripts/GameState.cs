@@ -63,7 +63,8 @@ public class GameState : NetworkBehaviour
         {
             gameOver = false;
             GameOverScreen.SetActive(false);
-            GetComponent<NetworkedTimerManager>().stopped = true;
+            if (GetComponent<NetworkedTimerManager>() != null)
+                GetComponent<NetworkedTimerManager>().stopped = true;
         }
     }
 

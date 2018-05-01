@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - Hungry
+  - Score
   layers:
   - Default
   - TransparentFX

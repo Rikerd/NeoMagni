@@ -12,8 +12,8 @@ public class PlayerController : NetworkBehaviour
     public float movementDuration;
 
     private float inner = 0.65f;
-    private float middle = 1.4f;
-    private float outer = 2.3f;
+    private float middle = 2.5f;
+    private float outer = 4.8f;
 
     [SyncVar]
     public int state; //0 = neutral, 1 = red, 2=blue
@@ -49,7 +49,7 @@ public class PlayerController : NetworkBehaviour
       //sprite = GetComponent<SpriteRenderer>();
         moving = false;
         timePassed = 0f;
-        currentPosition = new Vector3(middle, 4, 0);
+        currentPosition = new Vector3(middle, 7, 0);
   
         transform.position = currentPosition;
     }
@@ -90,7 +90,7 @@ public class PlayerController : NetworkBehaviour
 
         if (timePassed < movementDuration)
         {
-            transform.position = Vector3.Lerp(currentPosition, new Vector3(lane, 4, 0), timePassed / movementDuration);
+            transform.position = Vector3.Lerp(currentPosition, new Vector3(lane, 7, 0), timePassed / movementDuration);
             timePassed += Time.deltaTime;
         }
         else

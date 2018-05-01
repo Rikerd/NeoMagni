@@ -46,10 +46,12 @@ public class PlayerController : NetworkBehaviour
         currentState = MagnetState.Neutral;
         state = 0;
 
-        sprite = GetComponent<SpriteRenderer>();
+      //sprite = GetComponent<SpriteRenderer>();
         moving = false;
         timePassed = 0f;
         currentPosition = new Vector3(middle, 4, 0);
+  
+        transform.position = currentPosition;
     }
 
     // Update is called once per frame
@@ -57,6 +59,8 @@ public class PlayerController : NetworkBehaviour
     {
         if (isLocalPlayer)
             handleInput();
+        //print(playerNum + " player currentPosition: " + currentPosition);
+        //print(transform.position);
     }
 
     public MagnetState getMagnetState()
@@ -86,7 +90,7 @@ public class PlayerController : NetworkBehaviour
 
         if (timePassed < movementDuration)
         {
-            transform.position = Vector3.Lerp(currentPosition, new Vector3(lane, transform.position.y), timePassed / movementDuration);
+            transform.position = Vector3.Lerp(currentPosition, new Vector3(lane, 4, 0), timePassed / movementDuration);
             timePassed += Time.deltaTime;
         }
         else
@@ -116,25 +120,25 @@ public class PlayerController : NetworkBehaviour
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
         {
             currentState = MagnetState.Neutral;
-            sprite.color = Color.white;
+            //sprite.color = Color.white;
             CmdSetState(0);
         }
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             currentState = MagnetState.Neutral;
-            sprite.color = Color.white;
+            //sprite.color = Color.white;
             CmdSetState(0);
         }
         if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
         {
             currentState = MagnetState.Red;
-            sprite.color = Color.red;
+            //sprite.color = Color.red;
             CmdSetState(1);
         }
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
         {
             currentState = MagnetState.Blue;
-            sprite.color = Color.blue;
+            //sprite.color = Color.blue;
             CmdSetState(2);
         }
     }

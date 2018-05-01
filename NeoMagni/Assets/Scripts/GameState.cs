@@ -16,7 +16,7 @@ public class GameState : NetworkBehaviour
     [SyncVar]
     public bool gameOver;
 
-    private string status; //"repel" or "attract" or "neither"
+    public string status; //"repel" or "attract" or "neither"
     private GameManager gameManager;
     private static GameState playerInstance;
     private int sceneID;
@@ -47,15 +47,20 @@ public class GameState : NetworkBehaviour
         {
             updatePlayers();
             if (!player1.activeSelf || !player2.activeSelf)
+            {
                 gameOver = true;
+                GameObject timeManager = GameObject.Find("Timer Manager");
+                timeManager.GetComponent<NetworkedTimerManager>().stopped = true;
+            }
         }
-        //gameManager.setGameOver(gameOver);
         GameOverScreen.SetActive(gameOver);
+
         sceneID = SceneManager.GetActiveScene().buildIndex;
-        if (sceneID != 1)
+        if (sceneID != 4)
         {
             gameOver = false;
             GameOverScreen.SetActive(false);
+            GetComponent<NetworkedTimerManager>().stopped = true;
         }
     }
 
@@ -129,11 +134,42 @@ public class GameState : NetworkBehaviour
 
     private void changePlayerLooks(GameObject player)
     {
+        Transform modelTransform = player.GetComponent<Transform>();
         if (player.GetComponent<PlayerController>().state == 0)
-            player.GetComponent<SpriteRenderer>().color = Color.white;
+        {
+            //player.GetComponent<SpriteRenderer>().color = Color.white;
+            if (player == player1) //left magnet
+            {
+                modelTransform.rotation = Quaternion.Euler(180, 0, 0);
+            }
+            if (player == player2) //right magnet
+            {
+                modelTransform.rotation = Quaternion.Euler(180, 180, 0);
+            }
+        }
         if (player.GetComponent<PlayerController>().state == 1)
-            player.GetComponent<SpriteRenderer>().color = Color.red;
+        {
+            //player.GetComponent<SpriteRenderer>().color = Color.red;
+            if (player == player1) //left magnet
+            {
+                modelTransform.rotation = Quaternion.Euler(180, 0, -90);
+            }
+            if (player == player2) //right magnet
+            {
+                modelTransform.rotation = Quaternion.Euler(180, 180, -90);
+            }
+        }
         if (player.GetComponent<PlayerController>().state == 2)
-            player.GetComponent<SpriteRenderer>().color = Color.blue;
+        {
+            //player.GetComponent<SpriteRenderer>().color = Color.blue;
+            if (player == player1) //left magnet
+            {
+                modelTransform.rotation = Quaternion.Euler(180, 180, 90);
+            }
+            if (player == player2) //right magnet
+            {
+                modelTransform.rotation = Quaternion.Euler(180, 0, 90);
+            }
+        }
     }
 }

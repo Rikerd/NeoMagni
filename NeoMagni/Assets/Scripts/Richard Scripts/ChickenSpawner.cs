@@ -9,6 +9,16 @@ public class ChickenSpawner : MonoBehaviour {
 
     public float spawnTimer;
 
+	public GameObject basic;
+	public GameObject moverL;
+	public GameObject moverR;
+
+	private float inner = 0.65f;
+	private float middle = 2.5f;
+	private float outer = 4.8f;
+
+	private int spawns;
+
     // Use this for initialization
     void Start()
     {
@@ -23,7 +33,16 @@ public class ChickenSpawner : MonoBehaviour {
         if (spawnTimer <= 0f)
         {
             Birth();
-            spawnTimer = setSpawnTimer;
+			// change later
+
+			if (spawns > 45) {
+				spawnTimer = 1.5f;
+			} else if (spawns > 15) {
+				spawnTimer = 1f;
+			} else {
+				spawnTimer = setSpawnTimer;
+			}
+			Debug.Log (spawns);
         }
     }
 
@@ -31,28 +50,71 @@ public class ChickenSpawner : MonoBehaviour {
     // spits out the chickens at random positions
     void Birth()
     {
-        int position = Random.Range(1, 6);
+		spawns++;
 
-        switch (position)
-        {
-            case 1:
-                Instantiate(chicken, new Vector3(-4.8f, transform.position.y, 0f), Quaternion.identity);
-                break;
-            case 2:
-                Instantiate(chicken, new Vector3(-2.5f, transform.position.y, 0f), Quaternion.identity);
-                break;
-            case 3:
-                Instantiate(chicken, new Vector3(-0.65f, transform.position.y, 0f), Quaternion.identity);
-                break;
-            case 4:
-                Instantiate(chicken, new Vector3(0.65f, transform.position.y, 0f), Quaternion.identity);
-                break;
-            case 5:
-                Instantiate(chicken, new Vector3(2.5f, transform.position.y, 0f), Quaternion.identity);
-                break;
-            case 6:
-                Instantiate(chicken, new Vector3(4.8f, transform.position.y, 0f), Quaternion.identity);
-                break;
-        }
-    }
+		int x = 12;
+		if (spawns > 30) {
+			x = 7;
+		}
+		int position = Random.Range(1, x);
+
+		switch (position)
+		{
+		case 1:
+			Object.Instantiate(basic, new Vector3(-outer, -11f, -1f), Quaternion.identity);
+			Object.Instantiate(basic, new Vector3(inner, -11f, -1f), Quaternion.identity);
+			break;
+
+		case 2:
+			Object.Instantiate(basic, new Vector3(-inner, -11f, -1f), Quaternion.identity);
+			Object.Instantiate(basic, new Vector3(outer, -11f, -1f), Quaternion.identity);
+			break;
+		case 3:
+			Object.Instantiate(basic, new Vector3(-inner, -11f, -1f), Quaternion.identity);
+			Object.Instantiate(basic, new Vector3(inner, -11f, -1f), Quaternion.identity);
+			break;
+
+		case 4:
+			Object.Instantiate(basic, new Vector3(-outer, -11f, -1f), Quaternion.identity);
+			Object.Instantiate(basic, new Vector3(outer, -11f, -1f), Quaternion.identity);
+			break;
+		case 5:
+			Object.Instantiate(basic, new Vector3(-middle, -11f, -1f), Quaternion.identity);
+			Object.Instantiate(basic, new Vector3(middle, -11f, -1f), Quaternion.identity);
+			break;
+
+		case 6:
+			Object.Instantiate(basic, new Vector3(-outer, -11f, -1f), Quaternion.identity);
+			Object.Instantiate(basic, new Vector3(middle, -11f, -1f), Quaternion.identity);
+			break;
+		case 7:
+			Object.Instantiate(basic, new Vector3(-middle, -11f, -1f), Quaternion.identity);
+			Object.Instantiate(basic, new Vector3(outer, -11f, -1f), Quaternion.identity);
+			break;
+
+		case 8:
+			Object.Instantiate(moverL, new Vector3(-outer, -11f, -1f), Quaternion.identity);
+			Object.Instantiate(basic, new Vector3(middle, -11f, -1f), Quaternion.identity);
+			break;
+		case 9:
+			Object.Instantiate(moverR, new Vector3(outer, -11f, -1f), Quaternion.identity);
+			Object.Instantiate(basic, new Vector3(-middle, -11f, -1f), Quaternion.identity);
+			break;
+
+		case 10:
+			Object.Instantiate(moverL, new Vector3(-inner, -11f, -1f), Quaternion.identity);
+			Object.Instantiate(moverR, new Vector3(inner, -11f, -1f), Quaternion.identity);
+			break;
+
+		case 11:
+			Object.Instantiate(moverL, new Vector3(-outer, -11f, -1f), Quaternion.identity);
+			Object.Instantiate(moverR, new Vector3(outer, -11f, -1f), Quaternion.identity);
+			break;
+
+		case 12:
+			Object.Instantiate(moverL, new Vector3(-middle, -11f, -1f), Quaternion.identity);
+			Object.Instantiate(moverR, new Vector3(middle, -11f, -1f), Quaternion.identity);
+			break;
+		}
+	}
 }

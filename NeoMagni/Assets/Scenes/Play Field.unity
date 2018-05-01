@@ -481,6 +481,9 @@ MonoBehaviour:
   chicken: {fileID: 1720467709253996, guid: 48e12d01b4b79c143af926e787a19c6b, type: 2}
   setSpawnTimer: 2
   spawnTimer: 0
+  basic: {fileID: 1720467709253996, guid: 48e12d01b4b79c143af926e787a19c6b, type: 2}
+  moverL: {fileID: 1579692196628880, guid: 3822e368a31b9864d84ae1ed88c052f0, type: 2}
+  moverR: {fileID: 1337913810520158, guid: 485a6162bbc5a7c44b97447cf705b107, type: 2}
 --- !u!1 &422382704
 GameObject:
   m_ObjectHideFlags: 0
@@ -940,7 +943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b76fc04e4f9df4b9ad3d4b0f365741, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: 0
   timerText: {fileID: 1899561837}
 --- !u!4 &918908495
 Transform:

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameState : NetworkBehaviour
@@ -12,6 +13,7 @@ public class GameState : NetworkBehaviour
     public GameObject player2;
 
     public GameObject GameOverScreen;
+    public Text gameOverText;
 
     [SyncVar]
     public bool gameOver;
@@ -51,6 +53,7 @@ public class GameState : NetworkBehaviour
                 gameOver = true;
                 GameObject timeManager = GameObject.Find("Timer Manager");
                 timeManager.GetComponent<NetworkedTimerManager>().stopped = true;
+                gameOverText.text = "Survived for " + string.Format("{0:00}:{1:00}", TimerStat.Minute, TimerStat.Second);
             }
         }
         GameOverScreen.SetActive(gameOver);

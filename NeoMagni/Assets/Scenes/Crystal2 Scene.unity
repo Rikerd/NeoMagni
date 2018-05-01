@@ -1266,6 +1266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerText: {fileID: 2067310480}
+  stopped: 0
 --- !u!1 &1507491048
 GameObject:
   m_ObjectHideFlags: 0

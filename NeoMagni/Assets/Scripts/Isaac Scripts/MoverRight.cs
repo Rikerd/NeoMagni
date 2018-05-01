@@ -8,11 +8,13 @@ public class MoverRight : MonoBehaviour {
 	public float movementSpeedX;
 	private Rigidbody2D rb2d;
 	public int direction;
+	private AudioSource src;
 
 	// Use this for initialization
 	void Start () {
 		direction = 1;
 		rb2d = GetComponent<Rigidbody2D>();
+		src = GetComponent<AudioSource> ();
 	}
 
 	// Update is called once per frame
@@ -36,6 +38,7 @@ public class MoverRight : MonoBehaviour {
 		if (hit.tag == "Player") {
 			hit.gameObject.SetActive (false);
 			GameManager.gameOver = true;
+			src.Play ();
 		} else if (hit.tag == "Hungry") {
 			GameObject.Destroy (this.gameObject);
 		}

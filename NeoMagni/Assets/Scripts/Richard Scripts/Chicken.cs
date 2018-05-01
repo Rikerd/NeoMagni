@@ -7,10 +7,12 @@ public class Chicken : MonoBehaviour {
     public float movementSpeed;
 
     private Rigidbody2D rb2d;
+	private AudioSource src;
 
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+		src = GetComponent<AudioSource> ();
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class Chicken : MonoBehaviour {
 		if (hit.tag == "Player") {
 			hit.gameObject.SetActive (false);
 			GameManager.gameOver = true;
+			src.Play ();
 		} else if (hit.tag == "Hungry") {
 			GameObject.Destroy (this.gameObject);
 		}

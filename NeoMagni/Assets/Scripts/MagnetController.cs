@@ -23,6 +23,7 @@ public class MagnetController : MonoBehaviour {
     private Vector3 currentPosition;
     private float timePassed;
     
+	private AudioSource src;
 
     public enum MagnetState
     {
@@ -47,6 +48,8 @@ public class MagnetController : MonoBehaviour {
         moving = false;
         timePassed = 0f;
         currentPosition = transform.position;
+
+		src = GetComponent <AudioSource> ();
 	}
 	
 	// Update is called once per frame
@@ -109,6 +112,8 @@ public class MagnetController : MonoBehaviour {
                 setAnimationVariables();
                 player.setAnimationVariables();
             }
+
+			src.Play ();
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow) && !leftMagnet && !moving)
         {
@@ -124,6 +129,8 @@ public class MagnetController : MonoBehaviour {
                 setAnimationVariables();
                 player.setAnimationVariables();
             }
+
+			src.Play ();
         }
 
         if (Input.GetKeyDown(KeyCode.D) && leftMagnet && !moving)
@@ -140,6 +147,8 @@ public class MagnetController : MonoBehaviour {
                 setAnimationVariables();
                 player.setAnimationVariables();
             }
+
+			src.Play ();
         }
         else if (Input.GetKeyDown(KeyCode.RightArrow) && !leftMagnet && !moving)
         {
@@ -155,6 +164,8 @@ public class MagnetController : MonoBehaviour {
                 setAnimationVariables();
                 player.setAnimationVariables();
             }
+
+			src.Play ();
         }
 
         if (Input.GetKeyDown(KeyCode.S) && leftMagnet && !moving)
@@ -166,6 +177,8 @@ public class MagnetController : MonoBehaviour {
             modelTransform.rotation = target;
 
             setAnimationVariables();
+
+			src.Play ();
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow) && !leftMagnet && !moving)
         {
@@ -176,6 +189,8 @@ public class MagnetController : MonoBehaviour {
             modelTransform.rotation = target;
 
             setAnimationVariables();
+
+			src.Play ();
         }
     }
 

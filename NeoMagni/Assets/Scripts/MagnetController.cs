@@ -22,8 +22,6 @@ public class MagnetController : MonoBehaviour {
 
     private Vector3 currentPosition;
     private float timePassed;
-
-    private float rotationMultiplier;
     
 
     public enum MagnetState
@@ -37,15 +35,12 @@ public class MagnetController : MonoBehaviour {
 	void Start () {
         currentState = MagnetState.Neutral;
 
-        rotationMultiplier = 1;
 
         if (leftMagnet)
         {
             inner = -inner;
             middle = -middle;
             outer = -outer;
-
-            rotationMultiplier = -1;
         }
 
         //sprite = GetComponent<SpriteRenderer>();

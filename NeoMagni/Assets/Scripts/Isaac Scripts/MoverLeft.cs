@@ -31,10 +31,11 @@ public class MoverLeft : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D hit)
 	{
-		if (hit.tag == "Player")
-		{
-			hit.gameObject.SetActive(false);
+		if (hit.tag == "Player") {
+			hit.gameObject.SetActive (false);
 			GameManager.gameOver = true;
+		} else if (hit.tag == "Hungry") {
+			GameObject.Destroy (this.gameObject);
 		}
 	}
 

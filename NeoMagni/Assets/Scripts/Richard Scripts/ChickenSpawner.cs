@@ -52,9 +52,9 @@ public class ChickenSpawner : MonoBehaviour {
     {
 		spawns++;
 
-		int x = 12;
+		int x = 7;
 		if (spawns > 30) {
-			x = 7;
+			x = 12;
 		}
 		int position = Random.Range(1, x);
 

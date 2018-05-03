@@ -8,7 +8,7 @@ public class VerticalResolution : MonoBehaviour {
     {
         //Set screen size for Standalone
 #if UNITY_STANDALONE
-        Screen.SetResolution(564, 960, false);
+        Screen.SetResolution(576, 1024, false);
         Screen.fullScreen = false;
 #endif
     }
